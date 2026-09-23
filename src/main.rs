@@ -6,6 +6,7 @@ fn main() {
 
     let n = read_positive_number("Введите количество возможных значений (N): ");
     let m = read_positive_number("Введите сколько чисел сгенерировать (M): ");
+    let s = read_positive_number("Введите количество сетов (S): ");
 
     if !validator::can_generate_unique_numbers(n, m) {
         eprintln!(
@@ -15,8 +16,11 @@ fn main() {
         std::process::exit(1);
     }
 
-    let result = generate_unique_numbers(n, m);
-    println!("\nРезультат: {}", format_numbers(&result));
+    for item in 0..s {
+        let result = generate_unique_numbers(n, m);
+        println!("\nРезультат {}: {}", item + 1, format_numbers(&result));
+    }
+
 }
 
 fn read_positive_number(prompt: &str) -> u64 {
