@@ -56,12 +56,12 @@ pub mod validator {
         if input.is_empty() {
             return false;
         }
-        
+
         // Только цифры
         if !input.chars().all(|c| c.is_ascii_digit()) {
             return false;
         }
-        
+
         // Парсим и проверяем, что > 0
         match input.parse::<u64>() {
             Ok(num) => num > 0,

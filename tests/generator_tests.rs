@@ -7,7 +7,7 @@ fn test_generate_unique_count() {
     let m = 10;
     let result = generate_unique_numbers(n, m);
     assert_eq!(result.len(), m as usize);
-    
+
     // Проверяем, что все числа в диапазоне 1..n-1
     for &num in &result {
         assert!(num >= 1 && num < n);
@@ -21,12 +21,12 @@ fn test_generate_unique_count() {
 #[test]
 fn test_hybrid_strategy() {
     let n = 100;
-    
+
     // Малый M - должен использовать HashSet
     let small_m = 10;
     let result1 = generate_unique_numbers(n, small_m);
     assert_eq!(result1.len(), small_m as usize);
-    
+
     // Большой M - должен использовать перемешивание
     let large_m = 80;
     let result2 = generate_unique_numbers(n, large_m);
@@ -55,7 +55,7 @@ fn test_generate_large_range() {
     let m = 500;
     let result = generate_unique_numbers(n, m);
     assert_eq!(result.len(), m as usize);
-    
+
     // Проверяем уникальность для большого набора
     let set: HashSet<_> = result.iter().collect();
     assert_eq!(set.len(), result.len());
